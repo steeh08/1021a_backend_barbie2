@@ -15,7 +15,6 @@ describe('Cadastro Filme', () => {
         }
         const resposta = 
             await axios.post('http://localhost:3000/filmes', filme)
-        
         expect(resposta.status).toBe(201)
         expect(resposta.data).toEqual(filme)
     })
