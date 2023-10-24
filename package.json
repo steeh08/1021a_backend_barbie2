@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
+    "dev": "tsx src/index.ts -w",
     "test": "vitest"
   },
   "author": "Guilherme F. Terenciani",
