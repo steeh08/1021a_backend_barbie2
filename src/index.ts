@@ -8,6 +8,11 @@ app.get('/', (req, res) => {
     res.send('Olá, mundo!');
 });
 
+app.post('/filmes', (req, res) => {
+
+});
+
+
 // Inicia o servidor
 app.listen(3000, () => {
     console.log('Servidor iniciado na porta 3000');
