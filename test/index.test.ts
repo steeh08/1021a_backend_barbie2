@@ -32,9 +32,7 @@ describe('Cadastro Filme', () => {
       const listaFilmes = await axios.get('http://localhost:3000/filmes/1')
       const filmeCadastrado = listaFilmes.data
       //2)Verificar se o filme devolvido é igual ao que nós cadastramos
-      expect(filmeCadastrado[0]).toEqual(filme)
-      //3)Verificar se o tamanho da lista é igual a 1
-      expect(filmeCadastrado.length).toBe(1)
+      expect(filmeCadastrado).toEqual(filme)
   })
   it('deve listar outro filme cadastrado', async () => {
     const filme = {
@@ -49,8 +47,6 @@ describe('Cadastro Filme', () => {
     const listaFilmes = await axios.get('http://localhost:3000/filmes/2')
     const filmeCadastrado = listaFilmes.data
     //2)Verificar se o filme devolvido é igual ao que nós cadastramos
-    expect(filmeCadastrado[0]).toEqual(filme)
-    //3)Verificar se o tamanho da lista é igual a 1
-    expect(filmeCadastrado.length).toBe(1)
+    expect(filmeCadastrado).toEqual(filme)
   })
 })

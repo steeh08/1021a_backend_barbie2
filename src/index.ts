@@ -1,7 +1,8 @@
-import express from 'express';
+import express, {Request} from 'express';
 
 // Cria uma instância do aplicativo Express
 const app = express();
+app.use(express.json())
 
 type Filme = {
     id: number,
@@ -16,15 +17,18 @@ const filmes_repositorio:Filme[] = []
 app.get('/filmes/:id', (req, res) => {
     const id = parseInt(req.params.id)
     const filme = filmes_repositorio.find(filme => filme.id === id)
-    if (filme) {
-        res.send(filme)
-    } else {
-        res.status(404).send()
-    }
+    if (!filme) res.status(404).send()
+    res.send(filme)        
 });
 
-app.post('/filmes', (req, res) => {
-    const filme = req.body
+app.post('/filmes', (req:Request, res) => {
+    const {id, titulo, descricao, foto} = req.body
+    const filme:Filme = {
+        id,
+        titulo,
+        descricao,
+        foto,
+    }
     filmes_repositorio.push(filme)
     res.status(201).send(filme)
 });
