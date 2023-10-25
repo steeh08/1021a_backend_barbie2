@@ -9,7 +9,12 @@ app.get('/', (req, res) => {
 });
 
 app.post('/filmes', (req, res) => {
-
+    const filme = {
+        titulo: 'Vingadores',
+        descricao: 'Filme dos Vingadores',
+        foto: 'https://live.staticflickr.com/7270/6976087418_59719341f5_b.jpg',
+    }
+    res.status(201).send(filme)
 });
 
 
