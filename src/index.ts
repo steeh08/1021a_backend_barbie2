@@ -10,7 +10,7 @@ type Filme = {
     descricao: string,
     foto: string,
 }
-const filmes_repositorio:Filme[] = []
+let filmes_repositorio:Filme[] = []
 
 
 // Define uma rota padrão
@@ -31,6 +31,15 @@ app.post('/filmes', (req:Request, res) => {
     }
     filmes_repositorio.push(filme)
     res.status(201).send(filme)
+});
+
+app.delete('/filmes/:id', (req, res) => {
+    const id = parseInt(req.params.id)
+    const filme = filmes_repositorio.find(filme => filme.id === id)
+    if (!filme) res.status(404).send(filme)
+    const filterFilme = filmes_repositorio.filter(filme => filme.id !== id)
+    filmes_repositorio = filterFilme
+    res.status(204).send({"mensagem":"tere"})
 });
 
 
