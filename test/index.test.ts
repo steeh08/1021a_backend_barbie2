@@ -66,10 +66,8 @@ describe('Cadastro Filme', () => {
                 "content-type": "application/json"
               }
             })
-    expect(listaFilmes.status).toEqual(204)
-    listaFilmes.json().then(resposta=>{
-      console.log("Reposta:",resposta)
-    })
+    expect(listaFilmes.status).toEqual(200)
+    expect(await listaFilmes.json()).toEqual(filme)
     //2)Verifica se o filme que foi removido é igual ao que nós cadastramos
     //expect(filmeRemovido).toEqual(filme)
 
