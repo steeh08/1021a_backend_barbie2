@@ -1,5 +1,5 @@
 export default interface FilmeRepositorioInterface {
-    salvar(filme: FilmeDTO): boolean;
+    salvar(filme: FilmeDTO): Promise<boolean>;
 }
 type FilmeDTO = {
     id: number,

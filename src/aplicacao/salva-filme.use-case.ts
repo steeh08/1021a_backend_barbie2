@@ -2,10 +2,10 @@ import FilmeRepositorioInterface from "./filme-repositorio-interface"
 class SalvaFilme{
     
     constructor(private bancoInterface:FilmeRepositorioInterface){}
-    public execute(input:Input):Output|undefined{
+    public async execute(input:Input):Promise<Output|undefined>{
         const {id, titulo, descricao, foto} = input
         //Salvar no Banco
-        const resultado = this.bancoInterface.salvar({id,titulo,descricao,foto})
+        const resultado = await this.bancoInterface.salvar({id,titulo,descricao,foto})
         //Retornar o resultado
         if(!resultado) return undefined 
         return {id, titulo, descricao, foto}
