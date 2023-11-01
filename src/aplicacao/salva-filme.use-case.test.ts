@@ -1,5 +1,6 @@
 import {describe, test , expect} from 'vitest'
 import SalvaFilme from './salva-filme.use-case'
+import BancoEmMemoria from '../infra/banco/banco-em-memoria'
 describe("Testando usecase de salvar filme",()=>{
     test("Deve salvar um filme",()=>{
         //Entrada
@@ -9,8 +10,9 @@ describe("Testando usecase de salvar filme",()=>{
             descricao:"test",
             foto:"test"
         }
-        //Processamento
-        const salvaFilme = new SalvaFilme()
+        //Processamento]
+        const bancoEmMemoria = new BancoEmMemoria()
+        const salvaFilme = new SalvaFilme(bancoEmMemoria)
         const {id, titulo, descricao, foto} = filme
         const resultado = salvaFilme.execute({id,titulo,descricao,foto})
         //Resultado
