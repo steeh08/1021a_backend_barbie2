@@ -9,6 +9,12 @@ export default class BancoEmMemoria implements FilmeRepositorioInterface{
         })
     }
 }
+public listar():Promise<Filme[]>{
+    return new Promise((resolve,reject)=>{
+      resolve(this.dados)
+    })
+}
+
 type Filme = {
     id:number,
     titulo:string,
