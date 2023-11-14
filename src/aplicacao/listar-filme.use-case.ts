@@ -1,22 +1,12 @@
 import FilmeRepositorioInterface from "./filme-repositorio-interface"
-import ListarFilme from "./listar-filme.use-case.test"
+
 export default class ListarFilme{
-    
     constructor(private filmeRepositorio:FilmeRepositorioInterface){}
-    public async execute():Promise<FilmeODT[]>{
+    public async execute():Promise<Filme[]>{
         return this.filmeRepositorio.listar()
     }
 }
-
-
-
-type Input = {
-    id:number,
-    titulo:string,
-    descricao:string,
-    foto:string
-}
-type Output = {
+type Filme = {
     id:number,
     titulo:string,
     descricao:string,
