@@ -21,11 +21,11 @@ app.get('/filmes', async (req, res) => {
 });
 
 app.post('/filmes', async (req:Request, res) => {
-    const {id, titulo, descricao, foto} = req.body
+    const {id, titulo, sinopse, foto} = req.body
     const filme:Filme = {
         id,
         titulo,
-        descricao,
+        sinopse,
         foto,
     }
     const salvarFilme = new SalvarFilme(bancoMongoDB)
@@ -64,7 +64,7 @@ app.listen(3000, () => {
 type Filme = {
     id: number,
     titulo: string,
-    descricao: string,
+    sinopse: string,
     foto: string,
 }
 let filmes_repositorio:Filme[] = []

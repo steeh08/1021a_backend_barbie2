@@ -17,6 +17,6 @@ export default class BancoEmMemoria implements FilmeRepositorioInterface{
 type Filme = {
     id:number,
     titulo:string,
-    descricao:string,
+    sinopse:string,
     foto:string
 }
